@@ -1,0 +1,32 @@
+Qué es DevOps: Combinación de terminos de desarrolo y operaciones, su objetivo es hacer más rápida el ciclo de vida del desarrollo de software 
+y proporciona una entrega continua de alta calidad. 
+
+Por qué es tan importante DevOps: Ya que fomenta la comunicación entre equipo de desarrollos y las operaciones de tecnología
+
+Bases del DevOps: 
+Gestion agile de tareas
+Control de versiones 
+Continuos Integration (CI)
+Continuos Deployment (CD)
+Monitorización y logging
+Vivir en la Cloud 
+Infrastructure as Code (IaC)
+Microservicios 
+Contenerización
+
+Metodologías Agiles: Son las que nos permiten adaptar la forma de trabajo. 
+
+Qué es un Pipeline: Es un conjunto de elementos procesadores de datos conectados en serie, en donde la salida de un elemento es la entrada del siguiente.
+CI/CD => Se trata de una forma automatizada para disponibilizar nuevas funcionalidades de un software a los distintos interesados
+Por qué es impotantes: Porque se puede automatizar y monitorear el proceso de creación de software, desde la integración las pruebas y despliegues del producto
+
+Caracteristicas de un pipeline CI/CD: 
+Integracion y verificacion => workflow de desarrollo tipico
+Automatizacion => Para lograr velocidad 
+Cultura DevOps 
+Contendores => Reduce la complijidad de la infraestructura 
+CI => Se ejecuta cuando un desarrollador sube alguna nueva implementacion en una rama => Basicamente es revisar la calidad del software 
+CD => Se realiza una vez superado el CI, los desarrolladores envian sus cambios a la rama main 
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+

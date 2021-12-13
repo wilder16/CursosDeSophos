@@ -1,0 +1,85 @@
+1.3.1 Automatización con Screenplay
+
+Capas: 
+Feature/Narrative => Se debe utilizar una narativa declarativa de alto nivel
+Runner => Ejecutador
+Step Definitions => Clases qie mapean cada linea de los escenario definidos en lenguaje Gherkin a metodos java
+Task => Representa operaciones importantes para llegar a cumplir una meta
+Actions => Represanta una interacción directa del usuario con la interfaz
+Questions => Es la capa donde se especifica el assert de las pruebas, es decir donde se verifica los resultados de las operaciones realizadas
+User Interface => Son las clases que mapean los componentes de una interfaz de usuario.
+Capas transversales: 
+Util => Capa en donde encuentran las utilidades que se pueden reutilizar que no sean consideradas como task o actions 
+Model => Capa donde se encuentrán todos los objetos complejos de negocio
+Exceptions => Capa donde se crearán las excepciones especificas que permitiran la legibilidad de los resportes cuando las pruebas fallan.
+
+1.4.1 Serenity Screenplay - Rest / Interactions
+Metodos: 
+GET: Para obtener un recurso
+POST: Para crear un recurso
+PUT: Para actulizar un recurso por completo
+PATCH: Para actualizar un recurso parcialmente 
+DELETE: Para eliminar un recurso
+
+Paso para la automatización de una API REST
+1. Definir nuestra liberia
+utilizaremos un proyecto Gradle, con serenity-screenplay-rest 
+implementation group: 'net.serenity-bdd', name: 'serenity-screenplay-rest', version: ''2.4.4'
+
+2. Establecer la URI o BASE URL
+Puede ser a través del envio de un parametro desde el feature al stepDefinitions y a través de la funcion CallAnApi(url) se podría establecer la BASE URL. 
+Tambien puede ser a través de una clase de Constantes definiendo una constante BASE_URL y utilizarla en el stepDefinitions  través de la funcion CallAnApi.at(Constant.BASE_URL)
+
+3.Metodo Get
+Para este metodo se necesitan dos parametros más, el service o empoint y el id del recurso que se quiere consultar
+
+1.6.1 Instalar JDK 
+
+1.6.2 Intalar Gradle
+
+1.6.3 Cofigurar las variables de entorno
+
+1.7.1 Instalacion del IDE
+
+1.8.1 página para hacer testing de API gorest.co.in
+
+1.8.2 Creación de un proyecto Gradle
+Se debe crear un proyecto Java de tipo Gradle 
+Se debe configurar el archivo build.gradle con todas las dependencias que se requieran
+Se debe crear en la carpeta com.sophossolutions.tasks dentro del paquete main, java 
+Se debe crear en las carpetas com.sophossolutions.runners, com.sophossolutions.stepdefinitions  dentro del paquete test, java 
+Se debe crear un directorio dentro de test, resources com.sophossolutions.features
+
+1.8.3 Creación de feature get con Autenticación
+Se debe crear un archivo .featrure 
+Se debe nombrar el Feature: "Nombre del feature" y debe presentar la siguiente descripción
+Yo como "Actor"
+Necestio "Action"
+Para "fin ultimo"
+
+Scenario: "nombre del esenario"
+Given => Van todas las precondiciones
+When => Para las acciones que queremos realizar  
+Then => Para las validaciones
+
+1.8.4 Creación de Runner Get con Autenticación 
+El nombre el runner debe ser el mismo del feature con notación camelcase
+Se debe utilizar la anotación @RunWith(CucumberWithSerenity.class) luego 
+@CucumberOptions(
+        glue = "com.sophossolutions.stepdefinitions", => Define en donde se encuentra todos los stepdefinitions
+        features = "src/test/resources/com/sophossolutions/features.get_gorest.feature", => Ruta del feature que queremos ejecutar en especifico
+        snippets = CucumberOptions.SnippetType.CAMELCASE => Se utuliza para que se construlla los metodos de los step en notación camelcase
+
+1.8.5 Creación de Steps Get con Autenticación
+Luego de la creación del runner se debe ejecutar para que se puedan crear los stepdefinitions
+Se procede a copiar los metodos generados en la consola y a pegarlos en la clase stepdefinitions
+Se procede a importar las anotaciones
+Se debe crear la anotación @Before y el metodo publico sin retorno setUp()
+Con importación estatica 
+import static net.serenitybdd.screenplay.actors.OnStage.setTheStage;
+@Before
+    public void setup(){
+        setTheStage(new OnlineCast());
+    }
+
+1.8.6 Implementación de Tareas Get con Autenticación
